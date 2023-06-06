@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { YOUR_API_KEY } = process.env;
+const { API_KEY } = process.env;
 const { Router } = require('express');
 const router = Router();
 const axios = require('axios').default;
@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
     if (req.query.name) {
         try {
             //busco si existe el juego en la API
-            let response = await axios.get(`https://api.rawg.io/api/games?search=${req.query.name}&key=${YOUR_API_KEY}`);
+            let response = await axios.get(`https://api.rawg.io/api/games?search=${req.query.name}&key=${API_KEY}`);
             if (!response.data.count){
                 return res.status(204).json(`Juego no encontrado "${req.query.name}"`)
             }
@@ -54,7 +54,7 @@ router.get('/', async (req, res) => {
         try {
             let pages = 0;
             let results = [...videogamesDb]; //sumo lo que tengo en la DB
-            let response = await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}`);
+            let response = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
             while (pages < 6) {
                 pages++;
                 //filtro solo la DATA que necesito enviar al FRONT
@@ -89,35 +89,8 @@ router.get('/', async (req, res) => {
 
 
     });
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+        
 
 
 

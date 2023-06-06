@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { YOUR_API_KEY } = process.env;
+const { API_KEY } = process.env;
 const { Router } = require('express');
 const router = Router();
 const axios = require('axios').default;
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
         const platformDb = await Platform.findAll();
         if (platformDb.length) return res.json(platformDb)
         //else --> los voy a buscar a la API
-        const response = await axios.get(`https://api.rawg.io/api/platforms?key=${YOUR_API_KEY}`);
+        const response = await axios.get(`https://api.rawg.io/api/platforms?key=${API_KEY}`);
         const platforms = response.data.results; // recibo un array de objetos, con los juego filtrados por GENERO
         //los guardo en la DB filtrando solo el nombre
         platforms.forEach(async p => {
