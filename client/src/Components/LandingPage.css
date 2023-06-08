@@ -1,0 +1,6 @@
+.landing-page {
+    background-image: url('../assets/fondo.png');
+    background-size: contain;
+  background-position: top center;
+    /* Agrega cualquier otro estilo necesario */
+  }

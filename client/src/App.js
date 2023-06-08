@@ -1,9 +1,10 @@
 import './App.css';
+import LandingPage from './Components/LandingPage';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Videogames</h1>
+    <div className="app-container">
+      <LandingPage />
     </div>
   );
 }
