@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import React from "react";
 import LandingPage from "./Components/LandingPage";
@@ -18,10 +18,12 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Route exact path="/" element={<LandingPage />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/videogame" element={<VideogameCreate />} />
-        <Route path="/videogame/:id" element={<Details />} />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/videogame" element={<VideogameCreate />} />
+          <Route path="/videogame/:id" element={<Details />} />
+        </Routes>
       </div>
     </Router>
   );
