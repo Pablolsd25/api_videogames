@@ -5,7 +5,6 @@ import { getVideogames, getGenres, filterVideogamesByGenre, filterCreated, order
 import { Link } from 'react-router-dom';
 import Card from './Card';
 import Paginado from './Paginado';
-
 import Navbar from './Navbar';
 import Loader from './Loader';
 import './Home.css'
