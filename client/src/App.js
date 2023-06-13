@@ -1,21 +1,30 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import './App.css';
-import LandingPage from './Components/LandingPage';
+import React from "react";
+import LandingPage from "./Components/LandingPage";
 import Home from './Components/Home';
+import VideogameCreate from './Components/VideogameCreate';
+import Details from "./Components/Details";
 
-const App = () => {
+
+
+
+
+
+
+
+
+function App() {
   return (
     <Router>
-      <div className="app">
-        {/* Aquí puedes agregar cualquier otro contenido que desees mostrar en tu aplicación */}
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/home" component={Home} />
-        </Switch>
+      <div className="App">
+        <Route exact path="/" element={<LandingPage />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/videogame" element={<VideogameCreate />} />
+        <Route path="/videogame/:id" element={<Details />} />
       </div>
     </Router>
   );
-};
+}
 
 export default App;
