@@ -7,7 +7,7 @@ import axios from 'axios';
 //conexion entre front y back
 export function getVideogames(){
     return async function(dispatch){
-        var json = await axios.get('http://localhost:3001/videogame')
+        var json = await axios.get('http://localhost:3001/videogames')
             
             return dispatch({
             type: 'GET_VIDEOGAMES',
@@ -21,7 +21,7 @@ export function getVideogames(){
 export function getVideogameName(name) {
     return async function(dispatch) {
     try {
-        var json = await axios.get(`http://localhost:3001/videogame?name=` + name);
+        var json = await axios.get(`http://localhost:3001/videogames?name=` + name);
         return dispatch ({
             type: 'GET_VIDEOGAME_NAME',
             payload: json.data  //es lo q devuelve la ruta una vez q le asigno algo por name
@@ -76,7 +76,7 @@ export function getDetails(id) {
 */
 export function postVideogame(payload) {
     return async function (dispatch) {
-        const response = await axios.post('http://localhost:3001/videogame', payload);
+        const response = await axios.post('http://localhost:3001/videogames', payload);
         
            
         return response;
@@ -114,7 +114,7 @@ export function getDetails(id){
     if(id){
         return async function (dispatch){
             try {
-                const detail = await axios.get(`http://localhost:3001/videogame/${id}`);
+                const detail = await axios.get(`http://localhost:3001/videogames/${id}`);
                 dispatch ({
                     type: 'GET_DETAILS',
                     payload: detail.data
